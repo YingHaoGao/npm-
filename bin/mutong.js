@@ -1,18 +1,28 @@
 #!/usr/bin/env node
 
-const program = require('commander')
+process.env.NODE_PATH = __dirname + "/../node_modules";
+const { resolve } = require("path");
+const res = command => resolve(__dirname, '../commands/', command);
+const program = require("commander");
+const pkg = require("../package.json");
 
-function run (argv) {
-	if (argv[0] === '-v' || argv[0] === '--version') {
+program
+    .version(pkg.version)
 
-		console.log('  version is 0.0.1');
+program
+    .usage("<command> [project-name]")
 
-	} else if (argv[0] === '-h' || argv[0] === '--help') {
+program
+    .command("init")
+    .description("开始新建项目")
+    .alias("i")
+    .action(() => {
+        require(res("init"))
+    })
 
-		console.log('  usage:\n');
-		console.log('  -v --version [show version]');
+program.parse(process.argv)
 
-	}
+// 判断终端上输入出来bin中的命令是否还有其他值，如果没有终端会直接输出help
+if(!program.args || !program.args.length){
+    program.help()
 }
-
-run(process.argv.slice(2));
