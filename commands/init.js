@@ -7,6 +7,7 @@ const spinner = ora("下载中，请稍等......");
 const fs = require("fs");
 const path = require("path");
 const option = program.parse(process.argv).args[0];
+
 // 生产项目默认名
 const defaultName = typeof option === "string" ? option : "vue-pc";
 // 交互使用的问题
@@ -22,10 +23,11 @@ const questionList = [
         // 验证数据
         validate(val) {
           const validate = (val.trim().split(" ")).length === 1
-          return validate || '项目名称不允许有空格';
+          // return validate || '项目名称不允许有空格';
+          return validate || 'Project name is not allowed to have spaces ';
         },
         transformer(val) {
-          return val;
+          return chalk.blue(val);
         }
       },{
         type: 'input',
@@ -36,7 +38,7 @@ const questionList = [
           return true;
         },
         transformer(val) {
-          return val;
+          return chalk.blue(val);
         }
       }, {
         type: 'input',
@@ -47,7 +49,7 @@ const questionList = [
           return true;
         },
         transformer(val) {
-          return val;
+          return chalk.blue(val);
         }
       },{
         type: "list",
@@ -58,7 +60,7 @@ const questionList = [
             "vue-pc-console",
             "weex"
         ],
-        default:"vue pc default",
+        default:"vue-pc-default",
         // 使用filter将回答变成小写
         filter: function(val){
             return val.toLowerCase();
@@ -76,7 +78,7 @@ fs.mkdir(defaultName, err => {
 inquirer.prompt(questionList).then(answers => {
     if (answers["program type"] === "vue-pc-default"){
       spinner.start();
-      download("direct:https://github.com/YingHaoGao/staging.git#master", answers["Project name"] + "/config", { clone: true }, (err) => {
+      download("direct:https://github.com/YingHaoGao/staging.git#master", answers["Project name"], { clone: true }, (err) => {
         if(err){
             spinner.stop();
             console.log(err)

@@ -10,13 +10,14 @@ program
     .version(pkg.version)
 
 program
-    .usage("<command> [project-name]")
+    .usage("<command>")
 
 program
     .command("init")
     .description("开始新建项目")
     .alias("i")
     .action(() => {
+    	console.log('action: ' + resolve(__dirname, '../commands/', "init"))
         require(res("init"))
     })
 
