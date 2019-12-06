@@ -9,7 +9,7 @@ const path = require("path");
 const option = program.parse(process.argv).args[0];
 
 // 生产项目默认名
-const defaultName = typeof option === "string" ? option : "vue-pc";
+const defaultName = typeof option === "string" ? option : "@wmutong-project";
 // 交互使用的问题
 const questionList = [
     {
