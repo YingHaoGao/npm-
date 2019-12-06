@@ -56,9 +56,12 @@ const questionList = [
         name: "program type",
         message: "program type",
         choices: [
-            "vue-pc-default",
-            "vue-pc-console",
-            "weex"
+            "vue-pc-staging",
+            "vue-console-staging",
+            "weex",
+            "react-pc-staging",
+            "react-console-staging",
+            "react-app",
         ],
         default:"vue-pc-default",
         // 使用filter将回答变成小写
@@ -76,9 +79,9 @@ fs.mkdir(defaultName, err => {
 
 // 根据用户选择的语言去配置对应的配置文件
 inquirer.prompt(questionList).then(answers => {
-    if (answers["program type"] === "vue-pc-default"){
+    if (answers["program type"] === "vue-pc-staging"){
       spinner.start();
-      download("direct:https://github.com/YingHaoGao/staging.git#master", answers["Project name"], { clone: true }, (err) => {
+      download("direct:https://github.com/YingHaoGao/vue-pc-staging.git#master", answers["Project name"], { clone: true }, (err) => {
         if(err){
             spinner.stop();
             console.log(err)
@@ -87,9 +90,38 @@ inquirer.prompt(questionList).then(answers => {
             console.log(chalk.red("项目初始化成功"));
         }
       });
-    }else if(answers["program type"] === "vue-pc-console"){
+    }
+    else if(answers["program type"] === "vue-console-staging"){
+      spinner.start();
+      download("direct:https://github.com/YingHaoGao/vue-console-staging.git#master", answers["Project name"], { clone: true }, (err) => {
+        if(err){
+            spinner.stop();
+            console.log(err)
+        }else{
+            spinner.stop();
+            console.log(chalk.red("项目初始化成功"));
+        }
+      });
+    }
+    else if(answers["program type"] === "weex"){
       console.log("尽请期待...")
-    }else if(answers["program type"] === "weex"){
+    }
+    else if(answers["program type"] === "weex"){
+      console.log("尽请期待...")
+    }
+    else if(answers["program type"] === "react-console-staging"){
+      spinner.start();
+      download("direct:https://github.com/YingHaoGao/react-console-staging.git#master", answers["Project name"], { clone: true }, (err) => {
+        if(err){
+            spinner.stop();
+            console.log(err)
+        }else{
+            spinner.stop();
+            console.log(chalk.red("项目初始化成功"));
+        }
+      });
+    }
+    else if(answers["program type"] === "weex"){
       console.log("尽请期待...")
     }
 })
