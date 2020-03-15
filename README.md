@@ -5,6 +5,15 @@
 	MuTong个人使用前端脚手架，不做商用
 	如有侵权，请联系删除
 
+## 方法
+
+	Usage： mutong <command>
+	Options:
+			  -V, --version  output the version number
+			  -h, --help     output usage information
+	Commands:
+			  init|i         开始新建项目
+
 ## 类型
 
 	vue-pc-staging          vue展示页框架
