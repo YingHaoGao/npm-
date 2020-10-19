@@ -1,6 +1,6 @@
 {
   "name": "@wmutong/vue_pc",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
   "bin": {
     "mutong": "./bin/main.js"
