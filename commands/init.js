@@ -127,7 +127,7 @@ inquirer.prompt(questionList).then(answers => {
     }
     else if(answers["program type"] === "mini-app"){
       spinner.start();
-      download("direct:https://gitlab.com/YingHaoGao/frame_miniapp.git#master", answers["Project name"], { clone: true }, (err) => {
+      download("direct:https://github.com/YingHaoGao/frame_miniapp.git#master", answers["Project name"], { clone: true }, (err) => {
         if(err){
             spinner.stop();
             console.log(err)
