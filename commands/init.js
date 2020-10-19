@@ -62,6 +62,7 @@ const questionList = [
             "react-pc-staging",
             "react-console-staging",
             "react-app",
+            "mini-app",
         ],
         default:"vue-pc-default",
         // 使用filter将回答变成小写
@@ -106,7 +107,7 @@ inquirer.prompt(questionList).then(answers => {
     else if(answers["program type"] === "weex"){
       console.log("尽请期待...")
     }
-    else if(answers["program type"] === "weex"){
+    else if(answers["program type"] === "react-pc-staging"){
       console.log("尽请期待...")
     }
     else if(answers["program type"] === "react-console-staging"){
@@ -121,7 +122,19 @@ inquirer.prompt(questionList).then(answers => {
         }
       });
     }
-    else if(answers["program type"] === "weex"){
+    else if(answers["program type"] === "react-app"){
       console.log("尽请期待...")
+    }
+    else if(answers["program type"] === "mini-app"){
+      spinner.start();
+      download("direct:https://gitlab.com/YingHaoGao/frame_miniapp.git#master", answers["Project name"], { clone: true }, (err) => {
+        if(err){
+            spinner.stop();
+            console.log(err)
+        }else{
+            spinner.stop();
+            console.log(chalk.red("项目初始化成功"));
+        }
+      });
     }
 })

@@ -18,10 +18,11 @@
 
 	vue-pc-staging          vue展示页框架
 	vue-console-staging			vue控制台框架
-	weex										vue移动端框架（未上传）
-	react-pc-staging				react展示页框架（未上传）
+	weex						vue移动端框架（未上传）
+	react-pc-staging			react展示页框架（未上传）
 	react-console-staging		react展示页框架
-	react-app								react移动端框架（未上传）
+	react-app					react移动端框架（未上传）
+	mini-app					小程序端框架
 
 ---
 	
