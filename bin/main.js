@@ -51,7 +51,7 @@ program
 
 program
     .command("mini-compontants")
-    .alias("-mini-c")
+    .alias("mini-c")
     .description("开始安装小程序自定义组件")
     .action(() => {
      console.log('action: ' + resolve(__dirname, '../commands/', "install_miniapp_compontents"))

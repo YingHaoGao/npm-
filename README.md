@@ -13,6 +13,7 @@
 			  -h, --help     output usage information
 	Commands:
 			  init|i         开始新建项目
+			  -mini-c 		 安装小程序自定义组件
 
 ## 类型
 
